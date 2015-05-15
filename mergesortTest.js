@@ -1,9 +1,4 @@
-
-// Merge takes two sorted arrays (left, right) and
-// returns one array which contains the sorted numbers
-// from left and right.
-
-exports.merge = function(left, right) {
+function merge(left, right) {
 	var i = 0;
 	var j = 0;
 	var results = [];
@@ -22,14 +17,9 @@ exports.merge = function(left, right) {
 		}
 	}
 	return results;
-}
+};
 
-
-// Merge sort uses the merge function in order to
-// sort an array. Given an array of numbers in any
-// order, merge sort should return an array that is
-// sorted.
-exports.mergeSort = function(arr) {	
+function mergeSort(arr) {	
 	if(arr.length<2){
 		return arr;
 	};
@@ -37,7 +27,12 @@ exports.mergeSort = function(arr) {
 	var mid = Math.floor(arr.length/2);
 	var arrL = arr.slice(0, mid);
 	var arrR = arr.slice(mid, arr.length);
-	
-	return exports.merge(mergeSort(arrL), mergeSort(arrR));
-}
 
+	console.log(mid)
+	console.log(arrL)
+	console.log(arrR)
+	
+	return merge(mergeSort(arrL), mergeSort(arrR));
+};
+
+console.log(mergeSort([1,5,8,2,3,7,4]));
